@@ -57,7 +57,7 @@ export function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={cn(
-          "px-[35px] fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           scrolled ? "nav-blur border-b shadow-lg shadow-background/5" : "bg-transparent"
         )}
         role="navigation"
