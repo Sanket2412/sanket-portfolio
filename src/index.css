@@ -6,150 +6,287 @@
    SHADCN + CUSTOM DESIGN TOKENS
 ====================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @layer base {
+  body {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none;     /* IE/Edge */
+    user-select: none;         /* Standard */
+  }
   :root {
-    /* Font */
-    --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
-
-    /* Radius */
-    --radius: 0.75rem;
-
-    /* Core colors */
-    --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
-
+    /* Light mode - Premium, warm, professional */
+    --background: 220 20% 97%;
+    --foreground: 224 71% 4%;
+    
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-
+    --card-foreground: 224 71% 4%;
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-
-    --primary: 174 48% 45%;
+    --popover-foreground: 224 71% 4%;
+    
+    /* Deep Blue/Indigo accent - professional and trustworthy */
+    --primary: 230 65% 55%;
     --primary-foreground: 0 0% 100%;
-
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 47% 11%;
-
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
-
-    --accent: 174 48% 45%;
+    
+    --secondary: 220 14% 94%;
+    --secondary-foreground: 224 71% 4%;
+    
+    --muted: 220 14% 92%;
+    --muted-foreground: 220 9% 46%;
+    
+    --accent: 230 65% 55%;
     --accent-foreground: 0 0% 100%;
-
+    
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 174 48% 45%;
-
-    /* Sidebar */
-    --sidebar-background: 222 47% 11%;
-    --sidebar-foreground: 210 40% 96%;
-    --sidebar-primary: 174 48% 45%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 215 28% 17%;
-    --sidebar-accent-foreground: 210 40% 96%;
-    --sidebar-border: 215 28% 17%;
-    --sidebar-ring: 174 48% 45%;
+    
+    --border: 220 13% 88%;
+    --input: 220 13% 88%;
+    --ring: 230 65% 55%;
+    
+    --radius: 0.75rem;
+    
+    --nav-bg: 220 20% 97% / 0.85;
+    --section-alt: 220 14% 94%;
+    
+    /* Glow effects */
+    --glow-primary: 230 65% 55% / 0.15;
+    --glow-secondary: 230 65% 55% / 0.08;
+    
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 230 65% 55%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 230 65% 55%;
   }
 
   .dark {
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
-
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 98%;
-
-    --secondary: 215 28% 17%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 215 28% 17%;
-    --muted-foreground: 217 19% 60%;
-
-    --border: 215 28% 17%;
-    --input: 215 28% 17%;
-    --ring: 174 48% 45%;
-
-    --sidebar-background: 240 5.9% 10%;
+    /* Dark mode - Deep matte, premium, no neon */
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+    
+    --card: 224 50% 7%;
+    --card-foreground: 213 31% 91%;
+    
+    --popover: 224 50% 7%;
+    --popover-foreground: 213 31% 91%;
+    
+    /* Deep Blue/Indigo accent - matte, professional, NOT neon */
+    --primary: 230 55% 60%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 224 45% 12%;
+    --secondary-foreground: 213 31% 91%;
+    
+    --muted: 224 45% 12%;
+    --muted-foreground: 215 20% 55%;
+    
+    --accent: 230 55% 60%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 224 40% 14%;
+    --input: 224 40% 14%;
+    --ring: 230 55% 60%;
+    
+    --nav-bg: 224 71% 4% / 0.85;
+    --section-alt: 224 50% 6%;
+    
+    /* Glow effects */
+    --glow-primary: 230 55% 60% / 0.12;
+    --glow-secondary: 230 55% 60% / 0.06;
+    
+    --sidebar-background: 224 50% 6%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 174 48% 45%;
+    --sidebar-primary: 230 55% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent: 224 40% 14%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 174 48% 45%;
+    --sidebar-border: 224 40% 14%;
+    --sidebar-ring: 230 55% 60%;
   }
+}
 
+@layer base {
   * {
     @apply border-border;
   }
-
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
-    font-family: var(--font-sans);
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   }
 }
 
-/* ======================================================
-   CUSTOM ANIMATIONS
-====================================================== */
+@layer utilities {
+  .section-container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section-padding {
+    @apply py-20 sm:py-28 lg:py-32;
+  }
+  
+  .section-alt {
+    background-color: hsl(var(--section-alt));
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(245 55% 65%) 50%, hsl(260 50% 60%) 100%);
+  }
+  
+  .nav-blur {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background-color: hsl(var(--nav-bg));
+  }
+  
+  /* Premium glass effect */
+  .glass {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: hsl(var(--card) / 0.7);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+  
+  /* Card hover glow */
+  .card-glow {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px -4px hsl(var(--foreground) / 0.05);
+  }
+  
+  .card-glow:hover {
+    box-shadow: 0 20px 40px -12px hsl(var(--primary) / 0.15);
+  }
 
-@keyframes fade-in-up {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
+  .card-glow::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.2), transparent, hsl(var(--primary) / 0.1));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+  }
+  
+  .card-glow:hover::before {
+    opacity: 1;
+  }
+
+  /* Shadow utilities */
+  .shadow-glow {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.15);
+  }
+  
+  .shadow-glow-lg {
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.2);
+  }
+  
+  /* 3D perspective utilities */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  /* Typing cursor animation */
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  
+  .typing-cursor {
+    animation: blink 1s infinite;
+  }
+  
+  /* Float animation for 3D elements */
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(1deg); }
+    50% { transform: translateY(-5px) rotate(0deg); }
+    75% { transform: translateY(-15px) rotate(-1deg); }
+  }
+  
+  .animate-float {
+    animation: float 8s ease-in-out infinite;
+  }
+  
+  @keyframes float-delayed {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-15px) rotate(-1deg); }
+    50% { transform: translateY(-8px) rotate(0deg); }
+    75% { transform: translateY(-12px) rotate(1deg); }
+  }
+  
+  .animate-float-delayed {
+    animation: float-delayed 10s ease-in-out infinite;
+  }
+  
+  /* Gradient orb animation */
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.05); }
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
 }
 
-@keyframes fade-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-@keyframes slide-in-left {
-  0% { opacity: 0; transform: translateX(-30px); }
-  100% { opacity: 1; transform: translateX(0); }
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
 }
 
-@keyframes slide-in-right {
-  0% { opacity: 0; transform: translateX(30px); }
-  100% { opacity: 1; transform: translateX(0); }
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
 }
 
-@keyframes scale-in {
-  0% { opacity: 0; transform: scale(0.9); }
-  100% { opacity: 1; transform: scale(1); }
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
 }
 
-@keyframes rotate-in {
-  0% { opacity: 0; transform: rotateY(-15deg) translateZ(-50px); }
-  100% { opacity: 1; transform: rotateY(0) translateZ(0); }
+/* Selection color */
+::selection {
+  background-color: hsl(var(--primary) / 0.2);
+  color: hsl(var(--foreground));
 }
 
-.animate-fade-in { animation: fade-in 0.4s ease-out forwards; }
-.animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; }
-.animate-slide-in-left { animation: slide-in-left 0.5s ease-out forwards; }
-.animate-slide-in-right { animation: slide-in-right 0.5s ease-out forwards; }
-.animate-scale-in { animation: scale-in 0.4s ease-out forwards; }
-.animate-rotate-in { animation: rotate-in 0.6s ease-out forwards; }
-
-/* ======================================================
-   CUSTOM SHADOWS
-====================================================== */
-
-.shadow-glow {
-  box-shadow: 0 0 40px -10px hsl(var(--primary) / 0.3);
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-.shadow-glow-lg {
-  box-shadow: 0 0 60px -15px hsl(var(--primary) / 0.4);
-}
-
-.shadow-card-hover {
-  box-shadow: 0 25px 50px -12px hsl(var(--primary) / 0.15);
-}
 /* Hide scrollbar but keep scroll functionality */
 ::-webkit-scrollbar {
   width: 0px;
