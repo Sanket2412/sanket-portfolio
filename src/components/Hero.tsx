@@ -1,7 +1,7 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ArrowDown, FileText, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { TypeWriter } from "./Typewriter";
+import { TypeWriter } from "./TypeWriter";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { useRef } from "react";
 import profilePhoto from "../assets/profile-photo.png";
@@ -33,7 +33,7 @@ export function Hero() {
 
   const handleDownload = () => {
   const link = document.createElement("a")
-  link.href = "https://drive.google.com/uc?export=download&id=1KzYjlJtSem1Bb-AQtLga3CohNj8AhMN1"
+  link.href = `https://drive.google.com/uc?export=download&id=${import.meta.env.VITE_RESUME_ID}`
   link.download = "Sanket_Khardekar_Resume.pdf"
   document.body.appendChild(link)
   link.click()
@@ -60,7 +60,8 @@ export function Hero() {
             transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className="perspective-1000 cursor-pointer"
+            style={{ perspective: 1000 }}
+            className="cursor-pointer"
           >
             <motion.div
               style={{ rotateX, rotateY }}
@@ -187,7 +188,7 @@ export function Hero() {
                 onClick={handleDownload}
                 variant="outline" 
                 size="lg" 
-                className="gap-2 hover:bg-secondary border-border/50 hover:border-primary/30 transition-all duration-300 hover:scale-105"
+                className="gap-2 cursor-pointer border-border/50 hover:border-primary/30 transition-all duration-300 hover:scale-105"
               >
                 <div className="flex row">
                   <FileText className="h-4 w-4" />
