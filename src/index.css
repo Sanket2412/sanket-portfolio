@@ -6,7 +6,9 @@
 
 /* ================= COLOR DEFINITIONS ================= */
 html {
-  background-color: oklch(0.975 0.003 264.5); /* light background */
+  background-color: oklch(0.975 0.003 264.5);
+  -webkit-user-select: none;
+  user-select: none; /* light background */
 }
 
 html.dark {
