@@ -1,4 +1,4 @@
-import { Mail, Heart } from "lucide-react"
+import { Mail } from "lucide-react"
 import Github from "lucide-react/dist/esm/icons/github"
 import Linkedin from "lucide-react/dist/esm/icons/linkedin"
 import { Button } from "@/components/ui/button"
@@ -20,15 +20,23 @@ export function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
 
           {/* Text */}
-          <motion.p
-            className="text-sm text-muted-foreground flex items-center gap-1"
+          <motion.p 
+            className="text-sm text-muted-foreground"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
           >
-            © {new Date().getFullYear()} Sanket Khardekar. Built with
-            <Heart className="w-3.5 h-3.5 text-red-500 mx-1" />
-            using React
+            {(() => {
+              const startYear = 2026;
+              const currentYear = new Date().getFullYear();
+              return (
+                <>
+                  © {startYear}
+                  {currentYear > startYear && `–${currentYear}`}{" "}
+                  Sanket Khardekar. All rights reserved.
+                </>
+              );
+            })()}
           </motion.p>
 
           {/* Social Icons */}

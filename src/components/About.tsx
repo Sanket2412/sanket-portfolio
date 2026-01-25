@@ -1,9 +1,10 @@
 import { AnimatedSection } from "./AnimatedSection";
 import { Card, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { Code2, Layers, Zap, Users } from "lucide-react";
+import { Code2, Layers, Zap, Users, Award, ExternalLink } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { achievements } from "@/data/achievements";
 
 const focusAreas = [
   {
@@ -101,7 +102,7 @@ export function About() {
                 clean, maintainable code that solves real business problems.
               </p>
               <p>
-                I started by mastering the fundamentals—JavaScript, HTML, CSS and understanding how the 
+                I started by mastering the fundamentals JavaScript, HTML, CSS and understanding how the 
                 web actually works. That foundation helps me make better architectural decisions and 
                 debug issues faster.
               </p>
@@ -116,6 +117,39 @@ export function About() {
                 junior developers. I enjoy breaking down complex problems and explaining them simply.
               </p>
             </div>
+            {achievements.length > 0 && (
+              <div className="mt-8">
+                <div className="flex items-center gap-2 mb-4">
+                  <Award className="w-5 h-5 text-primary" />
+                  <h3 className="text-lg font-semibold text-foreground">Achievements</h3>
+                </div>
+                <div className="space-y-3">
+                  {achievements.map((achievement, index) => (
+                    <motion.a
+                      key={index}
+                      href={achievement.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      className="group flex items-center justify-between p-3 rounded-lg bg-card/50 border border-border/50 hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
+                    >
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-medium text-foreground text-sm group-hover:text-primary transition-colors">
+                          {achievement.title}
+                        </h4>
+                        <p className="text-xs text-muted-foreground truncate">
+                          {achievement.description}
+                        </p>
+                      </div>
+                      <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0 ml-3" />
+                    </motion.a>
+                  ))}
+                </div>
+              </div>
+            )}
           </AnimatedSection>
 
           <div className="grid sm:grid-cols-2 gap-4">

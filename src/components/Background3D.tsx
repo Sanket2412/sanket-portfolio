@@ -54,9 +54,10 @@ function ParticleField() {
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
-          count={count}
-          array={positions}
+          args={[positions, 3]}
+          count={positions.length / 3}
           itemSize={3}
+          usage={THREE.StaticDrawUsage}
         />
       </bufferGeometry>
       <pointsMaterial
@@ -146,28 +147,31 @@ export function Background3D() {
   const [reducedMotion, setReducedMotion] = useState(false);
   const [isLowEnd, setIsLowEnd] = useState(false);
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mediaQuery.matches);
+useEffect(() => {
+  if (typeof window === "undefined") return;
 
-    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
-    mediaQuery.addEventListener("change", handler);
-    
-    // Detect low-end devices
-    const canvas = document.createElement('canvas');
-    const gl = canvas.getContext('webgl');
-    if (gl) {
-      const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-      if (debugInfo) {
-        const renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
-        if (renderer.includes('Intel') || renderer.includes('Mali') || renderer.includes('Adreno')) {
-          setIsLowEnd(true);
-        }
+  // Reduced motion preference
+  const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const updateMotion = () => setReducedMotion(mediaQuery.matches);
+  updateMotion();
+  mediaQuery.addEventListener("change", updateMotion);
+
+  // Low-end GPU detection
+  const canvas = document.createElement("canvas");
+  const gl = canvas.getContext("webgl");
+  if (gl) {
+    const debugInfo = gl.getExtension("WEBGL_debug_renderer_info");
+    if (debugInfo) {
+      const renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+      if (/Mali|Adreno/i.test(renderer)) {
+        setIsLowEnd(true);
       }
     }
-    
-    return () => mediaQuery.removeEventListener("change", handler);
-  }, []);
+  }
+
+  return () => mediaQuery.removeEventListener("change", updateMotion);
+}, []);
+
 
   if (reducedMotion || isLowEnd) {
     // Fallback gradient background
@@ -188,7 +192,7 @@ export function Background3D() {
     <div className="fixed inset-0 pointer-events-none z-0">
       <Canvas
         camera={{ position: [0, 0, 8], fov: 60 }}
-        dpr={[1, 1.5]}
+        dpr={isLowEnd ? 1 : [1, 1.5]}
         gl={{ antialias: true, alpha: true }}
       >
         <Scene />
