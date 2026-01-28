@@ -2,8 +2,9 @@ import { useState } from "react";
 import { AnimatedSection } from "./AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Linkedin, Github, Copy, Check } from "lucide-react";
+import { Mail, Copy, Check } from "lucide-react";
 import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const EMAIL = "khardekarsanket@gmail.com";
 const LINKEDIN_URL = "https://www.linkedin.com/in/sanket-khardekar/";
@@ -90,7 +91,7 @@ export function Contact() {
                         asChild
                       >
                         <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
-                          <Linkedin className="h-5 w-5" />
+                          <FaLinkedin className="h-5 w-5" />
                           LinkedIn
                         </a>
                       </Button>
@@ -108,7 +109,7 @@ export function Contact() {
                         asChild
                       >
                         <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
-                          <Github className="h-5 w-5" />
+                          <FaGithub className="h-5 w-5" />
                           GitHub
                         </a>
                       </Button>

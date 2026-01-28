@@ -29,10 +29,3 @@ Built to highlight projects, experience, technical writing, and UI engineering s
 - **Lucide Icons**
 
 ---
-
-## 🚀 Getting Started
-
-Clone the repository:
-
-```bash
-git clone https://github.com/your-username/sanket-portfolio.git
