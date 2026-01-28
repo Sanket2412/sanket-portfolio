@@ -1,12 +1,11 @@
 import { Mail } from "lucide-react"
-import Github from "lucide-react/dist/esm/icons/github"
-import Linkedin from "lucide-react/dist/esm/icons/linkedin"
 import { Button } from "@/components/ui/button"
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion"
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com/Sanket2412", label: "GitHub" },
-  { icon: Linkedin, href: "https://www.linkedin.com/in/sanket-khardekar/", label: "LinkedIn" },
+  { icon: FaGithub, href: "https://github.com/Sanket2412", label: "GitHub" },
+  { icon: FaLinkedin, href: "https://www.linkedin.com/in/sanket-khardekar/", label: "LinkedIn" },
   { icon: Mail, href: "mailto:khardekarsanket@gmail.com", label: "Email" },
 ]
 

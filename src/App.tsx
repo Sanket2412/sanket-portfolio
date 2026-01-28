@@ -1,5 +1,4 @@
 import { Toaster as Sonner } from 'sonner'
-import './App.css'
 import { ThemeProvider } from './components/ThemeProvider'
 import { TooltipProvider } from './components/ui/tooltip'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
