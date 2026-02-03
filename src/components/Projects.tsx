@@ -44,8 +44,8 @@ const projects = [
     image: "https://images.unsplash.com/photo-1504813184591-01592fd03cf7?w=800&h=500&fit=crop",
     technologies: ["React", "Jest", "AG-Grid", "REST APIs", "Unit Testing"],
     challenges: "Achieved 100% code reliability by implementing a Jest testing suite and modernized the platform by upgrading deprecated legacy packages to improve build speeds.",
-    github: "https://github.com",
-    live: "https://example.com",
+    github: "",
+    live: "",
     featured: false,
   },
   {
